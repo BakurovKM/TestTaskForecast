@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forecast.Host", "Forecast.Host\Forecast.Host.csproj", "{77FE9036-15A1-45C5-A6EE-9FB3EE8DD610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forecast.Dal", "Forecast.Dal\Forecast.Dal.csproj", "{1ED85AA4-3EB5-4C13-93BE-E33E794A3CC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forecast.Application", "Forecast.Application\Forecast.Application.csproj", "{A4758C9B-8B2D-4C07-8EF8-81945CA133E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77FE9036-15A1-45C5-A6EE-9FB3EE8DD610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77FE9036-15A1-45C5-A6EE-9FB3EE8DD610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77FE9036-15A1-45C5-A6EE-9FB3EE8DD610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77FE9036-15A1-45C5-A6EE-9FB3EE8DD610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ED85AA4-3EB5-4C13-93BE-E33E794A3CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ED85AA4-3EB5-4C13-93BE-E33E794A3CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ED85AA4-3EB5-4C13-93BE-E33E794A3CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ED85AA4-3EB5-4C13-93BE-E33E794A3CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4758C9B-8B2D-4C07-8EF8-81945CA133E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4758C9B-8B2D-4C07-8EF8-81945CA133E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4758C9B-8B2D-4C07-8EF8-81945CA133E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4758C9B-8B2D-4C07-8EF8-81945CA133E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

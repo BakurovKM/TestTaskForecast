@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<title>@ViewData["Title"] - TestTaskForecast</title>
+	</head>
+	<body>
+		<div class="container body-content">
+			@RenderBody()
+		</div>
+
+		<environment include="Development">
+			<script src="~/lib/angular.min.js"></script>
+		</environment>
+
+		@RenderSection("Scripts", required: false)
+	</body>
+</html>

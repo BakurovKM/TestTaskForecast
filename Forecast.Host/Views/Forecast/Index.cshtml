@@ -1,0 +1,71 @@
+﻿@using Newtonsoft.Json
+@model Dictionary<int, string>
+@{
+    ViewData["Title"] = "Weather forecast page";
+}
+
+<div>
+	<main ng-controller="AppController">
+		<span>Выберите город</span>
+		<select ng-model="citiesList" ng-options="key as value for (key, value) in cities" ng-change="changeSelected(citiesList)"></select>
+
+		<input id="date" type="date" ng-model="dateString">
+
+		<button id="showForecast" ng-click="click()">Показать прогноз</button>
+		<span id="forecastError" ng-show="shouldShow404">Не найдено</span>
+	    
+		<div ng-show="shouldShowForecast">
+			<span>Прогноз:</span>
+			<ul>
+				<li id="weatherForecast" ng-bind="describe"></li>
+				<li>Максимальная температура: <span ng-bind="maxt"></span></li>
+				<li>Минимальная температура:<span ng-bind="mint"></span></li>
+				<li>Ветер м/с:<span ng-bind="windSpeedMs"></span></li>
+				<li>Осадки мм:<span ng-bind="precipitation"></span></li>
+			</ul>
+		</div>
+	</main>
+</div>
+@section Scripts
+{
+    <script>
+		(function() {
+			'use strict';
+			angular
+				.module('app', [])
+				.controller('AppController',
+					[
+						'$scope', '$http', function ($scope, $http) {
+                            $scope.dateString = new Date();
+							$scope.shouldShow404 = false;
+							$scope.shouldShowForecast = false;
+							$scope.cities = @Html.Raw(JsonConvert.SerializeObject(Model));
+							$scope.changeSelected = function (selectedId) {
+								return selectedId;
+							};
+							$scope.click = function() {
+								var response = $http({
+									url: 'Forecast/',
+									method: "GET",
+									params: { cityId: $scope.changeSelected($scope.citiesList), date: $scope.dateString }
+								});
+								response.then(function successCallback(response) {
+									$scope.describe = response.data.describe;
+									$scope.maxt = response.data.temperatureMax;
+									$scope.mint = response.data.temperatureMin;
+									$scope.windSpeedMs = response.data.windSpeedMs;
+									$scope.precipitation = response.data.precipitation;
+									$scope.shouldShow404 = false;
+									$scope.shouldShowForecast = true;
+								}, function errorCallback(response) {
+									if (response.status === 404) {
+										$scope.shouldShow404 = true;
+										$scope.shouldShowForecast = false;
+									}
+								});
+							};
+						}
+					]);
+		})();
+	</script>
+}
